@@ -1,0 +1,47 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 1000
+    use_sim_time: true
+
+    arm_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+      
+    hand_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    joint_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+arm_controller:
+  ros__parameters:
+    command_interfaces:
+      - position
+
+    state_interfaces:
+      - position
+      - velocity
+
+    joints:
+      - joint_1
+      - joint_2
+      - joint_3
+      - joint_4
+      - joint_5
+
+    open_loop_control: true
+    
+hand_controller:
+  ros__parameters:
+    command_interfaces:
+      - position
+
+    state_interfaces:
+      - position
+      - velocity
+
+    joints:
+      - joint_6
+      - joint_7
+      
+    open_loop_control: true
+    
